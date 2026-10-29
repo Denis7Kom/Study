@@ -628,14 +628,14 @@
         <div class="ua-acct-box">${avatarOf(u)}
           <div class="ua-acct-who"><b>${esc(u.displayName || "Account Google")}</b><span>${esc(u.email || "")}</span></div></div>
         <p class="ua-sync-p"><span class="ua-acct-ok">Sincronizzate ✓</span> Le spunte del piano di studio, dei quaderni e i risultati dei quiz si salvano sul tuo account e si aggiornano da sole su ogni dispositivo dove accedi.</p>
-        <div class="ua-sync-actions"><button type="button" class="ua-btn ua-do-logout">Esci</button><button type="button" class="ua-btn ua-btn-solid" data-close data-focus>Chiudi</button></div>
+        <div class="ua-sync-actions"><a class="ua-btn ua-report-link" href="${url("segnalazioni.html")}">Segnala un problema</a><button type="button" class="ua-btn ua-do-logout">Esci</button><button type="button" class="ua-btn ua-btn-solid" data-close data-focus>Chiudi</button></div>
         <button type="button" class="ua-acct-alt ua-do-export">Oppure sposta le spunte con un link o un QR</button>`
       : `<h2 class="ua-sync-t" id="ua-sync-t">I tuoi progressi</h2>
         <p class="ua-sync-p">Accedi con Google per ritrovare <b>le stesse spunte su PC e telefono</b>, sempre aggiornate. Ognuno vede solo le proprie.</p>
         <div class="ua-acct-box ua-acct-box-out"><button type="button" class="ua-btn ua-btn-solid ua-btn-wide ua-do-login" data-focus>Accedi con Google</button></div>
         <p class="ua-sync-note ua-acct-err" role="alert" hidden></p>
         <p class="ua-sync-note">Le spunte già presenti su questo dispositivo vengono unite a quelle del tuo account.</p>
-        <div class="ua-sync-actions"><button type="button" class="ua-btn" data-close>Chiudi</button></div>
+        <div class="ua-sync-actions"><a class="ua-btn ua-report-link" href="${url("segnalazioni.html")}">Segnala un problema</a><button type="button" class="ua-btn" data-close>Chiudi</button></div>
         <button type="button" class="ua-acct-alt ua-do-export">Senza account: sposta le spunte con un link o un QR</button>`;
     showSync(body);
     installAvatarFallbacks(sync);
