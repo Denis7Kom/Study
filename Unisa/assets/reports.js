@@ -20,7 +20,7 @@ function render(target, snapshot, admin) {
     const card = make("article", "", "report-item"), head = make("div", "", "report-head");
     const date = item.createdAt?.toDate ? item.createdAt.toDate().toLocaleString("it-IT") : "Invio in corso";
     head.append(make("time", date), make("span", labels[item.status] || "Stato sconosciuto", "report-status " + (labels[item.status] ? item.status : "")));
-    card.append(head, make("p", item.message || ""));
+    card.append(head, make("h3", item.title || ""), make("p", item.message || ""));
     if (item.contact) card.append(make("p", "Contatto: " + item.contact, "report-note"));
     if (admin) {
       card.append(make("p", "ID utente: " + item.userId, "report-note"));
@@ -46,11 +46,12 @@ byId("login").addEventListener("click", async () => {
 byId("report-form").addEventListener("submit", async event => {
   event.preventDefault();
   if (!user) return;
-  const message = byId("message").value.trim(), contact = byId("contact").value.trim();
+  const title = byId("title").value.trim(), message = byId("message").value.trim(), contact = byId("contact").value.trim();
+  if (title.length < 3) { notice("Scrivi almeno 3 caratteri per il titolo.", true); return; }
   if (message.length < 10) { notice("Scrivi almeno 10 caratteri per descrivere il problema.", true); return; }
   const button = event.currentTarget.querySelector("button"); button.disabled = true;
   try {
-    await addDoc(reports, {userId:user.uid, message, contact, status:"new", createdAt:serverTimestamp(), updatedAt:serverTimestamp()});
+    await addDoc(reports, {userId:user.uid, title, message, contact, status:"new", createdAt:serverTimestamp(), updatedAt:serverTimestamp()});
     event.target.reset(); notice("Segnalazione inviata.");
   } catch (e) { notice("Invio non riuscito. Controlla la connessione e riprova.", true); }
   finally { button.disabled = false; }
