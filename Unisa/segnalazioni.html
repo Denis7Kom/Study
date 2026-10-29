@@ -32,7 +32,8 @@ body{margin:0;background:var(--ua-bg);color:var(--ua-ink);font:16px/1.5 var(--ua
 <section class="report-card" id="form-panel" hidden>
 <h2>Nuova segnalazione</h2>
 <form class="report-form" id="report-form">
-<label>Descrizione del problema <textarea id="message" required minlength="10" maxlength="1500" placeholder="Spiega cosa è successo e, se possibile, come riprodurre il problema."></textarea></label>
+<label>Titolo <input id="title" required minlength="3" maxlength="120" placeholder="Riassumi il problema"></label>
+<label>Testo <textarea id="message" required minlength="10" maxlength="1500" placeholder="Spiega cosa è successo e, se possibile, come riprodurre il problema."></textarea></label>
 <label>Contatto per la risposta (facoltativo) <input id="contact" maxlength="200" placeholder="Email o altro contatto"></label>
 <p class="report-note">La segnalazione e l'eventuale contatto sono visibili agli amministratori. Non inserire password o dati sensibili.</p>
 <button class="ua-btn ua-btn-solid" type="submit">Invia segnalazione</button>
