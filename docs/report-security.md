@@ -11,9 +11,12 @@ match /reports/{reportId} {
   function signedIn() { return request.auth != null; }
   function admin() { return signedIn() && request.auth.token.admin == true; }
   allow create: if signedIn()
-    && request.resource.data.keys().hasOnly(['userId', 'message', 'contact', 'status', 'createdAt', 'updatedAt'])
-    && request.resource.data.keys().hasAll(['userId', 'message', 'contact', 'status', 'createdAt', 'updatedAt'])
+    && request.resource.data.keys().hasOnly(['userId', 'title', 'message', 'contact', 'status', 'createdAt', 'updatedAt'])
+    && request.resource.data.keys().hasAll(['userId', 'title', 'message', 'contact', 'status', 'createdAt', 'updatedAt'])
     && request.resource.data.userId == request.auth.uid
+    && request.resource.data.title is string
+    && request.resource.data.title.size() >= 3
+    && request.resource.data.title.size() <= 120
     && request.resource.data.message is string
     && request.resource.data.message.size() >= 10
     && request.resource.data.message.size() <= 1500
