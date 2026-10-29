@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111418">
+<title>Segnalazioni · Appunti Unisa</title>
+<script>try{const t=localStorage.getItem("ua-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+body{margin:0;background:var(--ua-bg);color:var(--ua-ink);font:16px/1.5 var(--ua-font)}
+.report-wrap{max-width:760px;margin:0 auto;padding:42px 20px 80px}
+.report-wrap h1{font-size:clamp(32px,6vw,50px);line-height:1.1;margin:0 0 12px}
+.report-lead,.report-note{color:var(--ua-muted)} .report-card{border:1px solid var(--ua-line);border-radius:14px;padding:22px;background:var(--ua-bg);margin-top:22px}
+.report-card h2{margin:0 0 12px;font-size:21px}.report-form{display:grid;gap:14px}
+.report-form label{display:grid;gap:5px;font-weight:600}.report-form textarea,.report-form input{width:100%;box-sizing:border-box;border:1px solid var(--ua-line);border-radius:8px;background:var(--ua-bg);color:var(--ua-ink);font:inherit;padding:10px}
+.report-form textarea{min-height:180px;resize:vertical}.report-form :focus-visible{outline:2px solid var(--ua-ink);outline-offset:2px}
+.report-list{display:grid;gap:12px}.report-item{border:1px solid var(--ua-line);border-radius:10px;padding:16px;overflow-wrap:anywhere}.report-item p{white-space:pre-wrap}.report-head{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.report-status{border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700}
+.report-status.new{background:#e4efff;color:#164a98}.report-status.rejected{background:#ffe4e4;color:#a5202d}.report-status.resolved{background:#dff4e7;color:#14633a}
+.report-error{color:#c8323e}.report-item select{font:inherit;padding:6px;border-radius:6px;max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main class="report-wrap">
+<a href="index.html">← Torna ai corsi</a>
+<h1>Segnala un problema</h1>
+<p class="report-lead">Descrivi il problema e segui lo stato della tua segnalazione. Puoi lasciare un contatto se desideri una risposta.</p>
+<p id="notice" role="status" aria-live="polite"></p>
+<section class="report-card" id="login-panel" hidden><h2>Accedi per continuare</h2><p>Usa il tuo account Google per inviare le segnalazioni e ritrovarle anche su altri dispositivi.</p><button class="ua-btn ua-btn-solid" id="login" type="button">Accedi con Google</button></section>
+<section class="report-card" id="form-panel" hidden>
+<h2>Nuova segnalazione</h2>
+<form class="report-form" id="report-form">
+<label>Descrizione del problema <textarea id="message" required minlength="10" maxlength="10000" placeholder="Spiega cosa è successo e, se possibile, come riprodurre il problema."></textarea></label>
+<label>Contatto per la risposta (facoltativo) <input id="contact" maxlength="200" placeholder="Email o altro contatto"></label>
+<p class="report-note">La segnalazione e l'eventuale contatto sono visibili agli amministratori. Non inserire password o dati sensibili.</p>
+<button class="ua-btn ua-btn-solid" type="submit">Invia segnalazione</button>
+</form></section>
+<section class="report-card" id="mine-panel" hidden><h2>Le tue segnalazioni</h2><div id="mine" class="report-list"></div></section>
+<section class="report-card" id="admin-panel" hidden><h2>Gestione segnalazioni</h2><div id="all" class="report-list"></div></section>
+</main>
+<script type="module" src="assets/reports.js"></script>
+</body></html>
