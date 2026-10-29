@@ -239,3 +239,7 @@ a.ua-ni.has-thumb{flex-direction:row;align-items:center;gap:12px}
 .ua-toast-act{appearance:none;border:0;border-radius:8px;padding:7px 11px;background:var(--ua-bg);color:var(--ua-ink);font:600 13px/1 var(--ua-font);cursor:pointer;flex:none}
 .ua-toast-x{appearance:none;border:0;background:none;color:inherit;opacity:.7;font-size:20px;line-height:1;padding:4px 8px;cursor:pointer;flex:none}
 @media (max-width:640px){.ua-toast{bottom:max(84px,calc(env(safe-area-inset-bottom,0px) + 72px))}}
+
+/* Segnalazioni nel pannello account */
+.ua-sync-actions .ua-report-link{margin-right:auto;text-decoration:none}
+.ua-sync-actions{flex-wrap:wrap}
