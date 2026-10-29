@@ -16,7 +16,7 @@ match /reports/{reportId} {
     && request.resource.data.userId == request.auth.uid
     && request.resource.data.message is string
     && request.resource.data.message.size() >= 10
-    && request.resource.data.message.size() <= 10000
+    && request.resource.data.message.size() <= 1500
     && request.resource.data.contact is string
     && request.resource.data.contact.size() <= 200
     && request.resource.data.status == 'new'
